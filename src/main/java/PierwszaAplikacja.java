@@ -16,6 +16,7 @@ public class PierwszaAplikacja extends Application {
     public void start(Stage primaryStage) {
         //Stage ->    Scene ->    StackPane ->    Text
 
+        //Controls:
         Text text = new Text("My graphic application");
         Text text2 = new Text("Text from application");
         Button button = new Button("My button");
