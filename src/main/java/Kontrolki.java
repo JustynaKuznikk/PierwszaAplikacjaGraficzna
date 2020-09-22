@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -21,66 +22,114 @@ public class Kontrolki extends Application {
     @Override
     public void start(Stage primaryStage) {
         Font font = Font.font("Arial", FontWeight.BOLD,30);
+        Font font1 = Font.font("Arial", FontWeight.BOLD,15);
+
         System.out.println(Font.getFamilies());
         Color color = Color.web("#FFFF12");
 
         //Label control
-        Label label = new Label("My first label");
-        label.setLayoutX(250);
-        label.setLayoutY(350);
+        Label label = new Label("Sign in");
+        label.setLayoutX(150);
+        label.setLayoutY(30);
         //label.setFont(new Font(20));
         label.setFont(font);
-        label.setTextFill(Color.VIOLET);
+        label.setTextFill(Color.BLACK);
         //label.setTextFill(color);
         label.setMaxWidth(100);
-        label.setWrapText(true);
-        label.setRotate(15);
+        //label.setWrapText(true);
+        //label.setRotate(15);
 
 
         //ImageView control
-        Image picture = new Image("sosa2.png");
+        Image picture = new Image("email.png");
         ImageView imageView = new ImageView(picture);
         //label.setGraphic(imageView);
-        Label labelWithView = new Label("Label with picture",imageView);
-        labelWithView.setLayoutX(100);
-        labelWithView.setLayoutY(100);
+//      Label labelWithView = new Label("Label with picture",imageView);
+//      labelWithView.setLayoutX(50);
+//      labelWithView.setLayoutY(10);
+        imageView.setLayoutX(50);
+        imageView.setLayoutY(10);
         imageView.setFitHeight(100);
-        imageView.setFitWidth(150);
+        imageView.setFitWidth(100);
         imageView.setPreserveRatio(true);
 
         //Button:
-        Button button = new Button("Click");
-        button.setText("Click here!");
-        button.setLayoutX(200);
+        Button button = new Button("  Submit  ");
+        //button.setText("Save e-mail");
+        button.setLayoutX(160);
         button.setLayoutY(300);
-        button.setTextFill(Color.DARKGREEN);
+        button.setTextFill(Color.BLACK);
         //button.setGraphic(imageView);
         button.setMaxWidth(300);
         button.setWrapText(true);
+//        button.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                System.out.println("Clicked ");
+//                String text = button.getText() + " wow ";
+//                button.setText(text);
+//                button.setDisable(true);
+//            }
+//        });
+
+        //TextField
+        TextField textField = new TextField();
+        textField.setLayoutX(90);
+        textField.setLayoutY(150);
+        textField.setMaxWidth(300);
+        textField.setPromptText("Enter email");
+        textField.setPrefColumnCount(20);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("Clicked ");
-                String text = button.getText() + " wow ";
-                button.setText(text);
+                System.out.println("E-mail: " + textField.getText());
+            }
+        });
+        Label label2 = new Label("Email address");
+        label2.setLayoutY(120);
+        label2.setLayoutX(90);
+        label2.setFont(font1);
+
+
+
+        TextField text2 = new TextField();
+        text2.setLayoutX(90);
+        text2.setLayoutY(240);
+        text2.setMaxWidth(300);
+        text2.setPromptText("Enter password");
+        text2.setPrefColumnCount(20);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Email: " + textField.getText());
+                System.out.println("Password: " + text2.getText());
                 button.setDisable(true);
             }
         });
+        Label label1 = new Label("Password");
+        label1.setLayoutY(210);
+        label1.setLayoutX(90);
+        label1.setFont(font1);
+
 
 
         //root:
         Group group = new Group();
         group.getChildren().add(label);
-        //group.getChildren().add(imageView);
-        group.getChildren().add(labelWithView);
+        group.getChildren().add(imageView);
+        //group.getChildren().add(labelWithView);
         group.getChildren().add(button);
+        group.getChildren().add(textField);
+        group.getChildren().add(label1);
+        group.getChildren().add(text2);
+        group.getChildren().add(label2);
 
         //scene
-        Scene scene = new Scene(group,800,600, Color.GRAY);
+        Scene scene = new Scene(group,400,400, Color.WHITE);
 
         //stage
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Aplication controls");
+        primaryStage.setTitle("Account login");
         primaryStage.show();
 
     }
