@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,8 +25,8 @@ public class Kontrolki extends Application {
         Font font = Font.font("Arial", FontWeight.BOLD,30);
         Font font1 = Font.font("Arial", FontWeight.BOLD,15);
 
-        System.out.println(Font.getFamilies());
-        Color color = Color.web("#FFFF12");
+        //System.out.println(Font.getFamilies());
+        //Color color = Color.web("#FFFF12");
 
         //Label control
         Label label = new Label("Sign in");
@@ -79,39 +80,33 @@ public class Kontrolki extends Application {
         textField.setMaxWidth(300);
         textField.setPromptText("Enter email");
         textField.setPrefColumnCount(20);
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("E-mail: " + textField.getText());
-            }
-        });
+
         Label label2 = new Label("Email address");
         label2.setLayoutY(120);
         label2.setLayoutX(90);
         label2.setFont(font1);
 
+        //PasswordField
+        PasswordField passwordField = new PasswordField();
+        passwordField.setLayoutX(90);
+        passwordField.setLayoutY(240);
+        passwordField.setMaxWidth(300);
+        passwordField.setPromptText("Enter password");
+        passwordField.setPrefColumnCount(20);
 
-
-        TextField text2 = new TextField();
-        text2.setLayoutX(90);
-        text2.setLayoutY(240);
-        text2.setMaxWidth(300);
-        text2.setPromptText("Enter password");
-        text2.setPrefColumnCount(20);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.out.println("Email: " + textField.getText());
-                System.out.println("Password: " + text2.getText());
+                System.out.println("Password: " + passwordField.getText());
                 button.setDisable(true);
             }
         });
+        
         Label label1 = new Label("Password");
         label1.setLayoutY(210);
         label1.setLayoutX(90);
         label1.setFont(font1);
-
-
 
         //root:
         Group group = new Group();
@@ -121,7 +116,7 @@ public class Kontrolki extends Application {
         group.getChildren().add(button);
         group.getChildren().add(textField);
         group.getChildren().add(label1);
-        group.getChildren().add(text2);
+        group.getChildren().add(passwordField);
         group.getChildren().add(label2);
 
         //scene
