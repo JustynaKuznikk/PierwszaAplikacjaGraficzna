@@ -1,6 +1,9 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,6 +48,24 @@ public class Kontrolki extends Application {
         imageView.setFitWidth(150);
         imageView.setPreserveRatio(true);
 
+        //Button:
+        Button button = new Button("Click");
+        button.setText("Click here!");
+        button.setLayoutX(200);
+        button.setLayoutY(300);
+        button.setTextFill(Color.DARKGREEN);
+        //button.setGraphic(imageView);
+        button.setMaxWidth(300);
+        button.setWrapText(true);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Clicked ");
+                String text = button.getText() + " wow ";
+                button.setText(text);
+                button.setDisable(true);
+            }
+        });
 
 
         //root:
@@ -52,6 +73,7 @@ public class Kontrolki extends Application {
         group.getChildren().add(label);
         //group.getChildren().add(imageView);
         group.getChildren().add(labelWithView);
+        group.getChildren().add(button);
 
         //scene
         Scene scene = new Scene(group,800,600, Color.GRAY);
