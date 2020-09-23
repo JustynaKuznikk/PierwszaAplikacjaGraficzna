@@ -3,10 +3,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -109,6 +106,17 @@ public class Kontrolki extends Application {
         label1.setLayoutX(90);
         label1.setFont(font1);
 
+        //CheckBox
+        CheckBox checkBox = new CheckBox();
+        checkBox.setLayoutX(90);
+        checkBox.setLayoutY(270);
+
+
+        Label label3 = new Label("Remember me");
+        label3.setLayoutX(110);
+        label3.setLayoutY(270);
+
+
         //root:
         Group group = new Group();
         group.getChildren().add(label);
@@ -119,6 +127,8 @@ public class Kontrolki extends Application {
         group.getChildren().add(label1);
         group.getChildren().add(passwordField);
         group.getChildren().add(label2);
+        group.getChildren().add(checkBox);
+        group.getChildren().add(label3);
 
 
         //scene
