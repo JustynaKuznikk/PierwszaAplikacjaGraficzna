@@ -100,9 +100,10 @@ public class Kontrolki extends Application {
                 System.out.println("Email: " + textField.getText());
                 System.out.println("Password: " + passwordField.getText());
                 button.setDisable(true);
+
             }
         });
-        
+
         Label label1 = new Label("Password");
         label1.setLayoutY(210);
         label1.setLayoutX(90);
@@ -118,6 +119,7 @@ public class Kontrolki extends Application {
         group.getChildren().add(label1);
         group.getChildren().add(passwordField);
         group.getChildren().add(label2);
+
 
         //scene
         Scene scene = new Scene(group,400,400, Color.WHITE);
