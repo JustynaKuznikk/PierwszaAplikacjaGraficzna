@@ -110,6 +110,17 @@ public class Kontrolki extends Application {
         CheckBox checkBox = new CheckBox();
         checkBox.setLayoutX(90);
         checkBox.setLayoutY(270);
+        //checkBox.setSelected(true);
+        checkBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if(checkBox.isSelected()){
+                    System.out.println("CheckBox selected");
+                }
+            }
+        });
+
+
 
 
         Label label3 = new Label("Remember me");
