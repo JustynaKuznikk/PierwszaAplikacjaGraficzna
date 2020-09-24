@@ -92,7 +92,30 @@ public class DrugieOkno extends Application {
         ProgressIndicator progressIndicator = new ProgressIndicator();
         progressIndicator.setLayoutX(30);
         progressIndicator.setLayoutY(180);
-        progressIndicator.setProgress(1.0);
+        //progressIndicator.setProgress(0);
+
+        //Slider
+        Slider slider = new Slider(0,100,0);
+        slider.setPrefWidth(200);
+        slider.setLayoutX(170);
+        slider.setLayoutY(150);
+        slider.setShowTickMarks(true);
+        slider.setShowTickLabels(true);
+        slider.setMajorTickUnit(25);
+        slider.setMinorTickCount(3);
+        slider.setSnapToTicks(true);
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue,
+                                Number number, Number t1) {
+                System.out.println("Slider value: "+ t1.intValue());
+                double valuePercent = t1.doubleValue() / 100.0;
+                progressBar.setProgress(valuePercent);
+                progressIndicator.setProgress(valuePercent);
+
+            }
+        });
+
 
 
         Group root = new Group();
@@ -103,6 +126,7 @@ public class DrugieOkno extends Application {
         root.getChildren().add(listView);
         root.getChildren().add(progressBar);
         root.getChildren().add(progressIndicator);
+        root.getChildren().add(slider);
 
         Scene scene = new Scene(root,400,400);
 
