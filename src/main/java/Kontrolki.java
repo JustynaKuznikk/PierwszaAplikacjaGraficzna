@@ -22,7 +22,7 @@ public class Kontrolki extends Application {
         Font font = Font.font("Arial", FontWeight.BOLD,30);
         Font font1 = Font.font("Arial", FontWeight.BOLD,15);
 
-        //System.out.println(Font.getFamilies());
+        System.out.println(Font.getFamilies());
         //Color color = Color.web("#FFFF12");
 
         //Label control
