@@ -86,7 +86,13 @@ public class DrugieOkno extends Application {
         ProgressBar progressBar = new ProgressBar();
         progressBar.setLayoutX(100);
         progressBar.setLayoutY(200);
-        progressBar.setProgress(0.5);
+        //progressBar.setProgress(0.5);
+
+        //ProgressIndicator
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        progressIndicator.setLayoutX(30);
+        progressIndicator.setLayoutY(180);
+        progressIndicator.setProgress(1.0);
 
 
         Group root = new Group();
@@ -96,6 +102,7 @@ public class DrugieOkno extends Application {
         root.getChildren().add(choiceBox);
         root.getChildren().add(listView);
         root.getChildren().add(progressBar);
+        root.getChildren().add(progressIndicator);
 
         Scene scene = new Scene(root,400,400);
 
