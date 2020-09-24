@@ -65,6 +65,22 @@ public class DrugieOkno extends Application {
             }
         });
 
+        //ListView
+        ListView<String> listView = new ListView<>();
+        listView.getItems().addAll(choice);
+        listView.setLayoutX(150);
+        listView.setLayoutY(300);
+        listView.setMaxSize(70,30);
+        listView.getSelectionModel().selectedIndexProperty()
+                .addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue,
+                                Number number, Number t1) {
+                String chosenElement = choice[t1.intValue()];
+                System.out.println("Chosen element from ListView: " + chosenElement);
+
+            }
+        });
 
 
         Group root = new Group();
@@ -72,6 +88,7 @@ public class DrugieOkno extends Application {
         root.getChildren().add(radioButton);
         root.getChildren().add(radioButton2);
         root.getChildren().add(choiceBox);
+        root.getChildren().add(listView);
 
         Scene scene = new Scene(root,400,400);
 
