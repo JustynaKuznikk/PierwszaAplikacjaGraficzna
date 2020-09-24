@@ -3,10 +3,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -51,11 +48,30 @@ public class DrugieOkno extends Application {
             }
         });
 
+        //ChoiceBox
+        String[] choice = {"Male", "Female"};
+        ChoiceBox<String> choiceBox = new ChoiceBox<>();
+        choiceBox.setLayoutX(150);
+        choiceBox.setLayoutY(350);
+        choiceBox.getItems().addAll(choice);
+        choiceBox.getSelectionModel().selectedIndexProperty()
+                .addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue,
+                                Number number, Number t1) {
+                //System.out.println("Choice index: " + t1.intValue());
+                String chosen = choice[t1.intValue()];
+                System.out.println("Chosen option from ChoiceBox: " + chosen);
+            }
+        });
+
+
 
         Group root = new Group();
         root.getChildren().add(textArea);
         root.getChildren().add(radioButton);
         root.getChildren().add(radioButton2);
+        root.getChildren().add(choiceBox);
 
         Scene scene = new Scene(root,400,400);
 
