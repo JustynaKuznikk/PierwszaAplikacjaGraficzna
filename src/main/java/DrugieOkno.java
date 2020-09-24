@@ -108,11 +108,17 @@ public class DrugieOkno extends Application {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue,
                                 Number number, Number t1) {
-                System.out.println("Slider value: "+ t1.intValue());
-                double valuePercent = t1.doubleValue() / 100.0;
-                progressBar.setProgress(valuePercent);
-                progressIndicator.setProgress(valuePercent);
-
+                if(t1.intValue() == 100){
+                    progressBar.setVisible(false);
+                    progressIndicator.setVisible(false);
+                }else{
+                    progressBar.setVisible(true);
+                    progressIndicator.setVisible(true);
+                    System.out.println("Slider value: "+ t1.intValue());
+                    double valuePercent = t1.doubleValue() / 100.0;
+                    progressBar.setProgress(valuePercent);
+                    progressIndicator.setProgress(valuePercent);
+                }
             }
         });
 
