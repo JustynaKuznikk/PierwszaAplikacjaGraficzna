@@ -47,7 +47,7 @@ public class KontrolkiZadanie extends Application {
         button.setLayoutY(120);
         button.setLayoutX(80);
 
-        Thread thread = new Thread(new Runnable() {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i <=100 ; i++) {
@@ -66,17 +66,32 @@ public class KontrolkiZadanie extends Application {
                     }
 
                 }
-                button2.setDisable(false);
-                label2.setVisible(true);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        button2.setDisable(false);
+                        label2.setVisible(true);
+                    }
+                });
+
             }
-        });
+        };
 
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 button.setDisable(true);
-                thread.start();
+                new Thread(runnable).start();
 
+            }
+        });
+        button2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                progressBar.setProgress(0);
+                label2.setVisible(false);
+                button.setDisable(false);
+                button2.setDisable(true);
             }
         });
 
