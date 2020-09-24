@@ -35,7 +35,7 @@ public class KontrolkiZadanie extends Application {
         ProgressBar progressBar = new ProgressBar();
         progressBar.setLayoutY(80);
         progressBar.setLayoutX(100);
-        progressBar.setProgress(0);
+
 
 
         Button button2 = new Button("Restart");
@@ -66,13 +66,17 @@ public class KontrolkiZadanie extends Application {
                     }
 
                 }
+                button2.setDisable(false);
+                label2.setVisible(true);
             }
         });
 
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                button.setDisable(true);
                 thread.start();
+
             }
         });
 
