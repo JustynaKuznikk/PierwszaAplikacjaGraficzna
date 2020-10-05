@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,15 +45,26 @@ public class UkladWidoku extends Application {
         vBox.setPadding(new Insets(10,10,10,10));
         vBox.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY,Insets.EMPTY)));
 
+        //StackPane
+        StackPane stackPane = new StackPane();
+        ImageView bigPizzaImageView = new ImageView(new Image
+                ("obrazki/pizza/pizza-cztery-sery-duza.png"));
+        Label bigPizzaLabel = new Label("Four cheese: " +
+                "mozzarella, feta, gouda, parmesan");
+        bigPizzaLabel.setTextFill(Color.WHITE);
+        stackPane.getChildren().addAll(bigPizzaImageView,bigPizzaLabel);
+        stackPane.setAlignment(Pos.CENTER);
+        stackPane.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY,Insets.EMPTY)));
 
 
         //BorderPane
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(hBox);
         borderPane.setLeft(vBox);
+        borderPane.setCenter(stackPane);
 
 
-        Scene scene = new Scene(borderPane,400,400);
+        Scene scene = new Scene(borderPane,800,650);
         primaryStage.setTitle("Layout");
         primaryStage.setScene(scene);
         primaryStage.show();
