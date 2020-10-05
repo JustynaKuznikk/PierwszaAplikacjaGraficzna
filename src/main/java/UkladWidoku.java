@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -91,6 +92,16 @@ public class UkladWidoku extends Application {
         gridPane.add(pane,3,1);
         gridPane.add(okButton,4,1);
         gridPane.add(cancelButton,5,1);
+        
+        //ScrollPane
+        for (int i = 0; i < 20; i++) {
+            ImageView pizzaCopyImageView = new ImageView(
+                    new Image("obrazki/pizza/pizza-funghi.png"));
+            flowPane.getChildren().add(pizzaCopyImageView);
+        }
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(flowPane);
+        scrollPane.setMaxWidth(170);
 
 
         //BorderPane
@@ -98,7 +109,7 @@ public class UkladWidoku extends Application {
         borderPane.setTop(hBox);
         borderPane.setLeft(vBox);
         borderPane.setCenter(stackPane);
-        borderPane.setRight(flowPane);
+        borderPane.setRight(scrollPane);
         borderPane.setBottom(gridPane);
 
 
