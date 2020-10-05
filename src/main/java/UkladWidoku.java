@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -56,12 +57,30 @@ public class UkladWidoku extends Application {
         stackPane.setAlignment(Pos.CENTER);
         stackPane.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY,Insets.EMPTY)));
 
+        //FlowPane
+        FlowPane flowPane = new FlowPane();
+        ImageView pizza1ImageView = new ImageView(new Image("obrazki/pizza/pizza-cztery-sery.png"));
+        ImageView pizza2ImageView = new ImageView(new Image("obrazki/pizza/pizza-funghi.png"));
+        ImageView pizza3ImageView = new ImageView(new Image("obrazki/pizza/pizza-margaritta.png"));
+        ImageView pizza4ImageView = new ImageView(new Image("obrazki/pizza/pizza-mexicana.png"));
+        ImageView pizza5ImageView = new ImageView(new Image("obrazki/pizza/pizza-pepperoni.png"));
+        ImageView pizza6ImageView = new ImageView(new Image("obrazki/pizza/pizza-salami.png"));
+        flowPane.getChildren().addAll(pizza1ImageView,pizza2ImageView,pizza3ImageView,
+        pizza4ImageView, pizza5ImageView, pizza6ImageView);
+        flowPane.setOrientation(Orientation.HORIZONTAL);
+        flowPane.setMaxWidth(150);
+        flowPane.setVgap(10);
+        flowPane.setHgap(5);
+        flowPane.setPadding(new Insets(5,5,5,5));
+
+
 
         //BorderPane
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(hBox);
         borderPane.setLeft(vBox);
         borderPane.setCenter(stackPane);
+        borderPane.setRight(flowPane);
 
 
         Scene scene = new Scene(borderPane,800,650);
