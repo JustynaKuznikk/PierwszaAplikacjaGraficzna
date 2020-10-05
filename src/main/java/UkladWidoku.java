@@ -73,6 +73,24 @@ public class UkladWidoku extends Application {
         flowPane.setHgap(5);
         flowPane.setPadding(new Insets(5,5,5,5));
 
+        //GridPane
+        Button minusButton = new Button("-");
+        minusButton.setPrefSize(30,30);
+        Button plusButton = new Button("+");
+        Button okButton = new Button("OK");
+        Button cancelButton = new Button("CANCEL");
+        plusButton.setPrefSize(30,30);
+        Label label = new Label("1");
+        label.setPadding(new Insets(0,10,0,10));
+        GridPane gridPane = new GridPane();
+        Pane pane = new Pane();
+        pane.setPrefWidth(50);
+        gridPane.add(plusButton,0,0);
+        gridPane.add(label,1,0);
+        gridPane.add(minusButton,2,0);
+        gridPane.add(pane,3,1);
+        gridPane.add(okButton,4,1);
+        gridPane.add(cancelButton,5,1);
 
 
         //BorderPane
@@ -81,6 +99,7 @@ public class UkladWidoku extends Application {
         borderPane.setLeft(vBox);
         borderPane.setCenter(stackPane);
         borderPane.setRight(flowPane);
+        borderPane.setBottom(gridPane);
 
 
         Scene scene = new Scene(borderPane,800,650);
